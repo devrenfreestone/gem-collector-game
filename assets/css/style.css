@@ -1,0 +1,15 @@
+body{
+	padding: 3%
+}
+
+/*#body{
+	background-color: #0aa;
+	width: 100%;
+}*/
+
+.gemButton{
+	padding: 10px;
+	height: 275px;
+	width: 275px;
+	background-color: #0ad;
+}

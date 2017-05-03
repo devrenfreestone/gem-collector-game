@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Gem Collector
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="body">
+        <!--Top Row is just for the name of the game. Don't get crazy.-->
+        <div class="row toprow">
+            <h1>Gem Collector!</h1>
+        </div>
+        <!-- Second Row is for the instructions, the goal number, score number, and win/loss counters. -->
+        <div class="row secondRow">
+            <div class="col-lg-6 instructionsBox">
+                <h3>
+					Instructions:
+				</h3>
+                <p>
+                    You will be given a random number at the start of the game.
+                    <br> There are four gems below. By clicking on a gem you will add a specific amount of point to your total score.
+                    <br> You win the game by matching your total score to the random number. You lose if your total score goes above the random number.
+                    <br> The value of each gem is hidden; you must click to discover it. The value of each is randomly generated with each new game.
+                    <br> Each time the game starts over, the value of each gem and the random number you must guess will be generated anew.
+                </p>
+            </div>
+            <div class="col-lg-4 goalNumber">
+                <p id="goal">Your Goal number for this game is:</p>
+                <p id="goalNumber"></p>
+                <p id="totalScore">Your total score is:</p>
+                <p id="score"></p>
+                <button id="start">Start</button>
+            </div>
+            <div class="col-lg-2 winLoss">
+                <p id="winsHolder">Number of Wins:</p>
+                <p id="wins"></p>
+                <p id="lossesHolder">Number of Losses:</p>
+                <p id="losses"></p>
+            </div>
+        </div>
+        <!-- Third Row is just for the buttons with the images of the gems. I know it was supposed to be crystals, and I'm not even sure why, but I don't like the word "Crystals", so I used gems. Oh well. Tell yourself you're playing the expensive version of the game if it's really getting to you.-->
+        <div class="row thirdRow">
+            <button class="col-lg-3 gemButton gem1"><p class = "button" id="button1"></p><img height=250px; width=250px; src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQIOHU0gklU-wNl63bAP7-WysV9n1nATsviIUfIHgLH6xAasuTR">
+            </button>
+            <button class="col-lg-3 gemButton gem2"><p class = "button" id="button2"></p><img height=250px; width=250px; src="http://teepasnow.com/uploads/main/sapphire.jpg">
+            </button>
+            <button class="col-lg-3 gemButton gem3"><p class = "button" id="button3"></p><img height=250px; width=250px; src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/096/1f3/01620e1.jpg">
+            </button>
+            <button class="col-lg-3 gemButton gem4"><p class = "button" id="button4"></p><img height=250px; width=250px; src="http://3.bp.blogspot.com/_ckRCGZMTXbQ/TOr-kEBaGdI/AAAAAAAAAH0/KNmPIIRY_RY/s1600/gem.jpg">
+            </button>
+        </div>
+    </div>
+    <script type="text/javascript">
+    // $(document).ready(function(){
+
+    var goalNumber = $("#goalNumber");
+    var score = $("#score");
+    var wins = $("#wins");
+    var losses = $("#losses");
+    var score = $("#score");
+    var buttons=document.getElementsByClassName("gemButton");
+    var button = jQuery.makeArray(buttons);
+
+    function buttonValue(){
+    	for (var i = 0; i < button.length; i++) {
+    		$(button[i]).attr("button", Math.floor((Math.random() * (13 - 1) + 1)));
+    		$("button").html("<p>" 5);
+    		console.log(button.value);
+    	};
+    	};
+
+	    
+
+    function newGame() {
+        goalNumber = Math.floor((Math.random() * (121 - 19) + 19)); $("#goalNumber").html(goalNumber); 
+        	console.log(goalNumber);
+        	buttonValue();
+        	score=0;
+        	$("#score").html(score);
+        };
+
+        $("#start").click(function() {
+            newGame();
+        });
+    </script>
+</body>
+
+</html>
