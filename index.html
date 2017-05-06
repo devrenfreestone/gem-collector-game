@@ -68,7 +68,7 @@
     var score = $("#score");
     var wins = $("#wins");
     var losses = $("#losses");
-    var score = $("#score");
+    var score = 0;
     var scoreAdd;
     var buttons = document.getElementsByClassName("gemButton");
     var button = jQuery.makeArray(buttons);
@@ -84,35 +84,42 @@
     };
 
     function buttonValue() {
-        for (var i = 0; i < button.length; i++) {
-            $(button[i]).attr("value", Math.floor((Math.random() * (13 - 1) + 1)));
-            scoreAdd = parseInt(button[i].value);
-            console.log(button[i]);
-            console.log(button.value);
-
-        };
+ 
+            $(".gemButton").each(function(){
+            	$(this).attr("value", Math.floor((Math.random() * (13 - 1) + 1)));
+            
+           
+            console.log($(this).attr("value"));
+            });
+       
     };
 
-    function crystalAdd() {
-        if (score < goalNumber) {
-            score += scoreAdd;
+    function crystalAdd(gem) {
+    	console.log(score==goalNumber)
+    
+            score += parseInt(gem.val());
             $("#score").html(score);
             console.log("score is:", score);
-        }
+        
+        
 
-    };
-
-
+    
+    	if (score==goalNumber) {
+    		alert("You Win");
+    		$(wins).html(wins + 1);
+    	}
+    	else if (score>goalNumber){
+    		alert("You Lose");
+    	}
+};
     $("#start").click(function() {
         newGame();
     });
-    $(".gem1").click(function() {
-        crystalAdd();
-        console.log(button.value)
+    $(".gemButton").click(function() {
+        crystalAdd($(this));
+        //console.log(button.value)
     });
-    $(".gem2").click(function() {
-        crystalAdd();
-    });
+    
     </script>
 </body>
 
