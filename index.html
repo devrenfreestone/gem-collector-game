@@ -40,9 +40,9 @@
             </div>
             <div class="col-lg-2 winLoss">
                 <p id="winsHolder">Number of Wins:</p>
-                <p id="wins"></p>
+                <p id="wins">0</p>
                 <p id="lossesHolder">Number of Losses:</p>
-                <p id="losses"></p>
+                <p id="losses">0</p>
             </div>
         </div>
         <!-- Third Row is just for the buttons with the images of the gems. I know it was supposed to be crystals, and I'm not even sure why, but I don't like the word "Crystals", so I used gems. Oh well. Tell yourself you're playing the expensive version of the game if it's really getting to you.-->
@@ -66,8 +66,8 @@
 
     var goalNumber = $("#goalNumber");
     var score = $("#score");
-    var wins = $("#wins");
-    var losses = $("#losses");
+    var wins = 0;
+    var losses = 0;
     var score = 0;
     var scoreAdd;
     var buttons = document.getElementsByClassName("gemButton");
@@ -106,10 +106,13 @@
     
     	if (score==goalNumber) {
     		alert("You Win");
-    		$(wins).html(wins + 1);
+    		$("#wins").html(wins+= 1);
+    		newGame()
     	}
     	else if (score>goalNumber){
     		alert("You Lose");
+    		$("#losses").html(losses+=1);
+    		newGame()
     	}
 };
     $("#start").click(function() {
